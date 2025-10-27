@@ -48,82 +48,9 @@
   <div class="map-container">
     <h2 class="section-title">Explore the World of Azania</h2>
     <p class="section-subtitle">Discover the provinces where our stories unfold</p>
-    
-    <div class="map-wrapper">
-      <div class="map-image-container">
-        <img src="YOUR-MAP-IMAGE-URL" alt="Map of Azania" class="base-map">
-        
-        <div class="province-marker" style="top: 15%; left: 20%;" data-province="northern-province">
-          <div class="marker-pulse"></div>
-          <div class="marker-dot">×</div>
-        </div>
-        
-        <div class="province-marker" style="top: 35%; left: 25%;" data-province="eastern-province">
-          <div class="marker-pulse"></div>
-          <div class="marker-dot">×</div>
-        </div>
-        
-        <div class="province-marker" style="top: 45%; left: 35%;" data-province="central-province">
-          <div class="marker-pulse"></div>
-          <div class="marker-dot">×</div>
-        </div>
-        
-        <div class="province-marker" style="top: 55%; left: 20%;" data-province="western-province">
-          <div class="marker-pulse"></div>
-          <div class="marker-dot">×</div>
-        </div>
-        
-        <div class="province-marker" style="top: 65%; left: 40%;" data-province="southern-province">
-          <div class="marker-pulse"></div>
-          <div class="marker-dot">×</div>
-        </div>
-      </div>
-      
-      <div class="province-info-panel">
-        <div class="info-card" id="northern-province-info">
-          <div class="info-header">
-            <h3>Northern Province</h3>
-            <span class="status-badge darkness">Covered in Darkness</span>
-          </div>
-          <div class="info-content">
-            <img src="YOUR-PROVINCE-IMAGE-URL" alt="Northern Province" class="province-thumbnail">
-            <p>A mysterious region shrouded in darkness, where ancient secrets lie waiting to be discovered.</p>
-            <div class="info-stats">
-              <div class="stat">
-                <span class="stat-label">Stories</span>
-                <span class="stat-value">3</span>
-              </div>
-              <div class="stat">
-                <span class="stat-label">Characters</span>
-                <span class="stat-value">12</span>
-              </div>
-            </div>
-            <a href="#" class="explore-btn">Explore Region →</a>
-          </div>
-        </div>
-        
-        <div class="info-card active" id="default-info">
-          <div class="default-message">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <h3>Select a Province</h3>
-            <p>Click on any × marker on the map to learn more about that region and the stories that take place there.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="map-legend">
-      <div class="legend-item">
-        <span class="legend-icon darkness">×</span>
-        <span class="legend-text">Provinces Covered in Darkness</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-icon light">×</span>
-        <span class="legend-text">Light Territories</span>
-      </div>
+
+    <div class="simple-map-wrapper">
+      <img src="YOUR-MAP-IMAGE-URL" alt="Map of Azania" class="azania-map-image">
     </div>
   </div>
 </div>
@@ -714,269 +641,19 @@ body {
   margin: 0 auto;
 }
 
-.map-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.map-image-container {
-  position: relative;
-  background: rgba(255, 255, 255, 0.05);
+.simple-map-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
   border-radius: 20px;
-  padding: 20px;
+  overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 70, 85, 0.2);
 }
 
-.base-map {
+.azania-map-image {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px;
-}
-
-.province-marker {
-  position: absolute;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-.marker-dot {
-  width: 30px;
-  height: 30px;
-  background: #ff4655;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.marker-pulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 70, 85, 0.4);
-  border-radius: 50%;
-  animation: pulse 2s ease-out infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(2.5);
-    opacity: 0;
-  }
-}
-
-.province-marker:hover .marker-dot {
-  transform: scale(1.3);
-  background: #ff8a00;
-}
-
-.province-info-panel {
-  position: relative;
-  min-height: 500px;
-}
-
-.info-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 30px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  display: none;
-  animation: slideIn 0.4s ease-out;
-}
-
-.info-card.active {
-  display: block;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.info-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.info-header h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.status-badge {
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.status-badge.darkness {
-  background: rgba(139, 0, 139, 0.3);
-  border: 2px solid #8b008b;
-  color: #ff00ff;
-}
-
-.status-badge.light {
-  background: rgba(255, 215, 0, 0.3);
-  border: 2px solid #ffd700;
-  color: #ffd700;
-}
-
-.province-thumbnail {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  border: 2px solid rgba(255, 70, 85, 0.3);
-}
-
-.info-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ccc;
-  margin-bottom: 25px;
-}
-
-.info-stats {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 25px;
-}
-
-.stat {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stat-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #999;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-
-.stat-value {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ff4655;
-}
-
-.explore-btn {
-  display: inline-block;
-  padding: 15px 35px;
-  background: linear-gradient(135deg, #ff4655 0%, #ff8a00 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-.explore-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 70, 85, 0.5);
-}
-
-.default-message {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.default-message svg {
-  color: #ff4655;
-  margin-bottom: 20px;
-  opacity: 0.5;
-}
-
-.default-message h3 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.default-message p {
-  font-size: 1.1rem;
-  color: #999;
-}
-
-.map-legend {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  flex-wrap: wrap;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.legend-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.legend-icon.darkness {
-  background: #ff4655;
-  color: white;
-}
-
-.legend-icon.light {
-  background: #ffd700;
-  color: #000;
 }
 
 /* SECTION 3: ABOUT ACTION STORIES - PARADISE PARK */
@@ -1896,10 +1573,6 @@ body {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
-  .map-wrapper {
-    grid-template-columns: 1fr;
-  }
-
   .tat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2064,27 +1737,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
-  // Map functionality
-  const markers = document.querySelectorAll('.province-marker');
-  const infoCards = document.querySelectorAll('.info-card');
-  const defaultInfo = document.getElementById('default-info');
-
-  markers.forEach(marker => {
-    marker.addEventListener('click', function() {
-      const province = this.getAttribute('data-province');
-      const targetCard = document.getElementById(province + '-info');
-
-      infoCards.forEach(card => card.classList.remove('active'));
-
-      if (targetCard) {
-        targetCard.classList.add('active');
-      }
-
-      markers.forEach(m => m.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
 
   // Smooth scroll for navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
